@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BackInTime</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Sticky Navbar -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <h1>BackInTime</h1>
+      <div class="controls">
+        <input type="date" id="datePicker" />
+        <select id="filterSelect">
+          <option value="Events">Events</option>
+          <option value="Births">Births</option>
+          <option value="Deaths">Deaths</option>
+        </select>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Spinner -->
+  <div id="spinner" class="spinner"></div>
+
+  <!-- Content -->
+  <main class="container">
+    <div id="events" class="events"></div>
+
+    <div class="pagination" id="pagination">
+      <button id="prevPage">⬅ Previous</button>
+      <span id="pageInfo">Page 1</span>
+      <button id="nextPage">Next ➡</button>
+    </div>
+  </main>
+<footer class="footer">
+  Made with ❤️ by Neel
+</footer>
+  <script src="script.js"></script>
+</body>
+</html>

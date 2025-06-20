@@ -1,0 +1,237 @@
+/* Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  background: #FFE3BB;
+  background-size: 400% 400%;
+  animation: bgShift 15s ease infinite;
+  color: #0f172a; /* dark text on light background */
+}
+
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glass Base */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+}
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 16px 24px;
+  background: #03A6A1;
+  color: #fff;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.navbar h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.controls input,
+.controls select {
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #0f172a;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.controls input::placeholder {
+  color: #475569;
+}
+
+/* Dropdown Fixes */
+.controls select {
+  appearance: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #0f172a;
+  cursor: pointer;
+}
+.controls select option {
+  background: rgba(255, 255, 255, 0.85);
+  color: #0f172a;
+}
+.controls select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(3, 166, 161, 0.5);
+}
+.controls select option:hover {
+  background-color: rgba(255, 166, 115, 0.4);
+}
+
+/* Spinner */
+.spinner {
+  display: none;
+  margin: 30px auto;
+  width: 45px;
+  height: 45px;
+  border: 6px solid #ffa673;
+  border-top: 6px solid #ff4f0f;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Container */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Events */
+.events {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.event {
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 6px solid #ffa673;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.event:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+.event strong {
+  font-weight: 600;
+  color: #ff4f0f;
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 40px 0;
+}
+.pagination button {
+  background: linear-gradient(to right, #ffa673, #ff4f0f);
+  color: white;
+  padding: 10px 18px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.pagination button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(255, 79, 15, 0.5);
+}
+.pagination button:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+#pageInfo {
+  font-weight: 500;
+  color: #334155;
+}
+
+/* Fix bottom scroll white space */
+body::after {
+  content: "";
+  display: block;
+  height: 1px;
+}
+/* Filter dropdown - glassy look */
+#filterSelect {
+  background: rgba(255, 227, 187, 0.25); /* glassy sand tone */
+  color: #0f172a; /* dark text for contrast */
+  border: 1px solid rgba(3, 166, 161, 0.3); /* subtle teal border */
+  border-radius: 10px;
+  padding: 10px 14px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  appearance: none;
+  cursor: pointer;
+}
+
+/* Options inside the dropdown */
+#filterSelect option {
+  background: rgba(255, 227, 187, 0.9); /* softer version of background */
+  color: #0f172a; /* readable dark text */
+}
+
+/* Focus effect for dropdown */
+#filterSelect:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 79, 15, 0.35); /* soft deep orange glow */
+}
+
+/* Hover effect on options — limited support */
+#filterSelect option:hover {
+  background-color: rgba(255, 166, 115, 0.5); /* warm orange highlight */
+}
+/* Sticky Footer */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px 20px;
+  text-align: center;
+  background: #03A6A1;
+  color: rgba(255, 227, 187, 0.9);
+  font-weight: 500;
+  font-size: 1rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
+  z-index: 20;
+}
