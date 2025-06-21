@@ -1,4 +1,4 @@
-/* Global Reset */
+/* Global Reset & Base */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,16 +11,20 @@ html, body {
   background: #FFE3BB;
   background-size: 400% 400%;
   animation: bgShift 15s ease infinite;
-  color: #0f172a; /* dark text on light background */
+  color: #0f172a;
 }
-
 @keyframes bgShift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+body::after {
+  content: "";
+  display: block;
+  height: 1px;
+}
 
-/* Glass Base */
+/* Glass Utility */
 .glass {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -41,7 +45,6 @@ html, body {
   backdrop-filter: blur(16px);
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
 }
-
 .navbar-content {
   display: flex;
   justify-content: space-between;
@@ -49,7 +52,6 @@ html, body {
   flex-wrap: wrap;
   gap: 10px;
 }
-
 .navbar h1 {
   margin: 0;
   font-size: 2rem;
@@ -60,11 +62,10 @@ html, body {
 /* Controls */
 .controls {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
-  justify-content: flex-end;
+  gap: 12px;
 }
-
 .controls input,
 .controls select {
   padding: 10px 14px;
@@ -75,16 +76,12 @@ html, body {
   backdrop-filter: blur(12px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-
 .controls input::placeholder {
   color: #475569;
 }
-
-/* Dropdown Fixes */
 .controls select {
   appearance: none;
   background: rgba(255, 255, 255, 0.12);
-  color: #0f172a;
   cursor: pointer;
 }
 .controls select option {
@@ -97,6 +94,61 @@ html, body {
 }
 .controls select option:hover {
   background-color: rgba(255, 166, 115, 0.4);
+}
+
+/* Custom Styling for DatePicker & Filter Select */
+#datePicker,
+#filterSelect {
+  background: rgba(255, 227, 187, 0.25);
+  color: #FFE3BB;
+  border: 1px solid rgba(3, 166, 161, 0.3);
+  border-radius: 10px;
+  padding: 10px 14px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  appearance: none;
+  cursor: pointer;
+}
+#datePicker::placeholder {
+  color: #FFE3BB;
+  opacity: 1;
+}
+#datePicker::-webkit-calendar-picker-indicator {
+  filter: brightness(0) saturate(100%) invert(92%) sepia(7%) saturate(847%) hue-rotate(323deg) brightness(106%) contrast(91%);
+  opacity: 1;
+}
+#filterSelect option {
+  background: rgba(255, 227, 187, 0.9);
+  color: #0f172a;
+}
+#filterSelect:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 79, 15, 0.35);
+}
+#filterSelect option:hover {
+  background-color: rgba(255, 166, 115, 0.5);
+}
+
+/* GitHub Button */
+.github-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  background-color: #171515;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  width: 36px;
+  height: 36px;
+}
+.github-btn:hover {
+  background-color: #333;
+}
+.github-icon {
+  width: 20px;
+  height: 20px;
+  filter: invert(1);
 }
 
 /* Spinner */
@@ -114,20 +166,17 @@ html, body {
   to { transform: rotate(360deg); }
 }
 
-/* Container */
+/* Container & Events */
 .container {
   max-width: 900px;
   margin: auto;
   padding: 20px;
 }
-
-/* Events */
 .events {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-
 .event {
   padding: 20px;
   border-radius: 16px;
@@ -176,56 +225,16 @@ html, body {
   cursor: not-allowed;
   box-shadow: none;
 }
-
+.page-btn.disabled {
+  opacity: 0.5;
+  pointer-events: auto;
+  cursor: not-allowed;
+}
 #pageInfo {
   font-weight: 500;
   color: #334155;
 }
 
-/* Fix bottom scroll white space */
-body::after {
-  content: "";
-  display: block;
-  height: 1px;
-}
-/* Filter dropdown - glassy look */
-#datePicker,
-#filterSelect {
-  background: rgba(255, 227, 187, 0.25); /* glassy sand tone */
-  color:#FFE3BB; /* dark text for contrast */
-  border: 1px solid rgba(3, 166, 161, 0.3); /* subtle teal border */
-  border-radius: 10px;
-  padding: 10px 14px;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  appearance: none;
-  cursor: pointer;
-}
-#datePicker::placeholder {
-  color: #FFE3BB;
-  opacity: 1;
-}
-#datePicker::-webkit-calendar-picker-indicator {
-  filter: brightness(0) saturate(100%) invert(92%) sepia(7%) saturate(847%) hue-rotate(323deg) brightness(106%) contrast(91%);
-  opacity: 1;
-}
-/* Options inside the dropdown */
-#filterSelect option {
-  background: rgba(255, 227, 187, 0.9); /* softer version of background */
-  color: #0f172a; /* readable dark text */
-}
-
-/* Focus effect for dropdown */
-#filterSelect:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(255, 79, 15, 0.35); /* soft deep orange glow */
-}
-
-/* Hover effect on options — limited support */
-#filterSelect option:hover {
-  background-color: rgba(255, 166, 115, 0.5); /* warm orange highlight */
-}
 /* Sticky Footer */
 .footer {
   position: fixed;
@@ -243,11 +252,8 @@ body::after {
   box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
   z-index: 20;
 }
-.page-btn.disabled {
-  opacity: 0.5;
-  pointer-events: auto;
-  cursor: not-allowed;
-}
+
+/* Animated Logo */
 .animated-logo {
   display: flex;
   align-items: center;
@@ -257,77 +263,31 @@ body::after {
   color: #f3f4f6;
   animation: wave-pop 2.5s ease-in-out infinite;
 }
-
 .animated-logo .logo-img {
   width: 50px;
   height: 35px;
   object-fit: contain;
   animation: tilt-pop 3s ease-in-out infinite;
 }
-
 .brand-text {
-  background: linear-gradient(
-    270deg,
-    #FFE3BB,
-    #f7dab1,
-    #f7d6a9,
-    #f5d6ab,
-    #f8cf95
-  );
+  background: linear-gradient(270deg, #FFE3BB, #f7dab1, #f7d6a9, #f5d6ab, #f8cf95);
   background-size: 400% 400%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: text-slide 5s linear infinite;
 }
-
-/* Logo soft wave-pop motion */
 @keyframes wave-pop {
   0%, 100% { transform: translateY(0); }
   25% { transform: translateY(-3px) rotate(-1deg); }
   50% { transform: translateY(3px) rotate(1deg); }
   75% { transform: translateY(-2px) rotate(-0.5deg); }
 }
-
-/* Slight playful tilt pop */
 @keyframes tilt-pop {
   0%, 100% { transform: rotate(0deg) scale(1); }
   50% { transform: rotate(3deg) scale(1.05); }
 }
-
-/* Shimmering slide effect on text */
 @keyframes text-slide {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 200% 50%;
-  }
-}
-.controls {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.github-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px;
-  background-color: #171515;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
-  width: 36px;
-  height: 36px;
-}
-
-.github-btn:hover {
-  background-color: #333;
-}
-
-.github-icon {
-  width: 20px;
-  height: 20px;
-  filter: invert(1); /* makes it white */
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
 }
