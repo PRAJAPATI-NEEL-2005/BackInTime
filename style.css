@@ -235,3 +235,64 @@ body::after {
   box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
   z-index: 20;
 }
+.page-btn.disabled {
+  opacity: 0.5;
+  pointer-events: auto;
+  cursor: not-allowed;
+}
+.animated-logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  gap: 10px;
+  color: #f3f4f6;
+  animation: wave-pop 2.5s ease-in-out infinite;
+}
+
+.animated-logo .logo-img {
+  width: 50px;
+  height: 35px;
+  object-fit: contain;
+  animation: tilt-pop 3s ease-in-out infinite;
+}
+
+.brand-text {
+  background: linear-gradient(
+    270deg,
+    #FFE3BB,
+    #f4d8b2,
+    #dec096,
+    #debb8a,
+    #d9b27b
+  );
+  background-size: 400% 400%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-slide 5s linear infinite;
+}
+
+/* Logo soft wave-pop motion */
+@keyframes wave-pop {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-3px) rotate(-1deg); }
+  50% { transform: translateY(3px) rotate(1deg); }
+  75% { transform: translateY(-2px) rotate(-0.5deg); }
+}
+
+/* Slight playful tilt pop */
+@keyframes tilt-pop {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(3deg) scale(1.05); }
+}
+
+/* Shimmering slide effect on text */
+@keyframes text-slide {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}

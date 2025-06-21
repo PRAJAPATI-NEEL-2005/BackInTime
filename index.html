@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BackInTime</title>
+  <link rel="icon" type="image/png" href="hourglass.jpg" />
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
@@ -11,7 +12,10 @@
   <!-- Sticky Navbar -->
   <nav class="navbar">
     <div class="navbar-content">
-      <h1>BackInTime</h1>
+     <h1 class="animated-logo">
+  <img src="hourglass.png" alt="Hourglass Logo" class="logo-img" />
+  <span class="brand-text">BackInTime</span>
+</h1>
       <div class="controls">
         <input type="date" id="datePicker" />
         <select id="filterSelect">
@@ -31,9 +35,9 @@
     <div id="events" class="events"></div>
 
     <div class="pagination" id="pagination">
-      <button id="prevPage">⬅ Previous</button>
+      <button id="prevPage" class="page-btn">⬅ Previous</button>
       <span id="pageInfo">Page 1</span>
-      <button id="nextPage">Next ➡</button>
+      <button id="nextPage" class="page-btn">Next ➡</button>
     </div>
   </main>
 <footer class="footer">
