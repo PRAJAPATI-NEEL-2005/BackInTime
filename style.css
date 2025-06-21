@@ -189,9 +189,10 @@ body::after {
   height: 1px;
 }
 /* Filter dropdown - glassy look */
+#datePicker,
 #filterSelect {
   background: rgba(255, 227, 187, 0.25); /* glassy sand tone */
-  color: #0f172a; /* dark text for contrast */
+  color:#FFE3BB; /* dark text for contrast */
   border: 1px solid rgba(3, 166, 161, 0.3); /* subtle teal border */
   border-radius: 10px;
   padding: 10px 14px;
@@ -201,7 +202,14 @@ body::after {
   appearance: none;
   cursor: pointer;
 }
-
+#datePicker::placeholder {
+  color: #FFE3BB;
+  opacity: 1;
+}
+#datePicker::-webkit-calendar-picker-indicator {
+  filter: brightness(0) saturate(100%) invert(92%) sepia(7%) saturate(847%) hue-rotate(323deg) brightness(106%) contrast(91%);
+  opacity: 1;
+}
 /* Options inside the dropdown */
 #filterSelect option {
   background: rgba(255, 227, 187, 0.9); /* softer version of background */
@@ -261,10 +269,10 @@ body::after {
   background: linear-gradient(
     270deg,
     #FFE3BB,
-    #f4d8b2,
-    #dec096,
-    #debb8a,
-    #d9b27b
+    #f7dab1,
+    #f7d6a9,
+    #f5d6ab,
+    #f8cf95
   );
   background-size: 400% 400%;
   background-clip: text;
