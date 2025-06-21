@@ -304,3 +304,30 @@ body::after {
     background-position: 200% 50%;
   }
 }
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.github-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  background-color: #171515;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  width: 36px;
+  height: 36px;
+}
+
+.github-btn:hover {
+  background-color: #333;
+}
+
+.github-icon {
+  width: 20px;
+  height: 20px;
+  filter: invert(1); /* makes it white */
+}
