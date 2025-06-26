@@ -5,7 +5,23 @@ const spinner = document.getElementById('spinner');
 const prevBtn = document.getElementById('prevPage');
 const nextBtn = document.getElementById('nextPage');
 const pageInfo = document.getElementById('pageInfo');
+  const cursor = document.querySelector('.custom-cursor');
 
+document.addEventListener('mousemove', (e) => {
+  cursor.style.left = `${e.clientX}px`;
+  cursor.style.top = `${e.clientY}px`;
+});
+
+document.addEventListener('mouseover', (e) => {
+  const tag = e.target.tagName.toLowerCase();
+  const isInteractive =
+    ['a', 'button', 'input', 'textarea', 'select', 'label'].includes(tag) ||
+    e.target.onclick;
+
+  if (isInteractive) {
+    cursor.classList.add('hovering');
+  }
+});
 let allItems = [];
 let currentPage = 1;
 const itemsPerPage = 10;
